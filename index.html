@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- This work of art/piece of crap is courtesy of twisted_nematic57's mood swings. -->
+<!-- I seldom work with HTML/CSS/JS, so please forgive any braincell landmines that follow. -->
+
+<html>
+<head>
+	<title>mr. knew-about-the-server-since</title>
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	<style>
+	h1 {
+		font-family: 'Inter', sans-serif;
+	}
+    body {
+		font-family: 'Inter', sans-serif;
+    }
+	</style>
+</head>
+
+<body>
+	<h1>Nirav Patel has known about the Framework Minecraft server (mc.framewiki.net) for <span id="minutes1"></span> minutes.</h1>
+	<h2>Alternate form:
+		<span id="funformat">mr. knew-about-the-server-since-<span id="minutes2"></span>-minutes</span>
+	</h2>
+	<button onclick="copyMinutes()">Copy</button>
+	
+	<br><br><br>
+	Yes, I am aware that is not valid grammer.
+
+	<script>
+	function getMinutes() { // returns the number of minutes since the big bang moment
+		var diff = Math.abs(new Date() - new Date('2025/07/19 13:57'));
+		var minutes = Math.floor((diff/1000)/60);
+		return minutes;
+	}
+
+	function updateMinutes() {
+	  document.getElementById("minutes1").textContent = getMinutes();
+	  document.getElementById("minutes2").textContent = getMinutes();
+	  // No, I won't be wrapping that in a for loop. Suck it.
+	}
+
+	updateMinutes();
+	setInterval(updateMinutes, 5000); // update every 5 seconds because i'm lazy
+	
+	function copyMinutes() { // to clipboard, NOT your super-secret password list
+		const text = document.getElementById("funformat").textContent;
+		navigator.clipboard.writeText(text).then(() => {
+			console.log("Copied to clipboard:\n" + text);
+		}).catch(err => {
+			alert("couldn't copy alternate form. tell you browser to stop dillydallying");
+		});
+	}
+	</script>
+</body>
+
+</html>
